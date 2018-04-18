@@ -4,9 +4,9 @@
 
 Axel Wagner edited this page on Feb 4 · 29 revisions
 
-Поскольку введена встроенная команда `append`, большая часть функциональности пакета `container/vector`, была удалена в Go 1, но может быть реализована с помощью команд `append` и` copy`.
+Поскольку введена встроенная команда `append`, большая часть функциональности пакета `container/vector`, было удалено в Go 1, но ёё функциональность можно реализовать с помощью команд `append` и` copy`.
 
-Вот векторные методы и их аналоги манипуляций со срезами:
+Вот векторные операции и их аналоги манипуляций со срезами:
 
 #### Добавление вектора
 ```go
@@ -82,7 +82,6 @@ a = append(a[:i], append([]T{x}, a[i:]...)...)
 ```
 **Замечание**
 
-The second ` append ` creates a new slice with its own underlying storage and  copies elements in ` a[i:] ` to that slice, and these elements are then copied back to slice ` a ` (by the first ` append `). The creation of the new slice (and thus memory garbage) and the second copy can be avoided by using an alternative way:
 Второй `append` создает новый срез со своим собственным базовым хранилищем и копирует элементы в `a[i:]` на этот фрагмент, и эти элементы затем копируются обратно на срез `a`(первым `append`). Создание нового фрагмента (и, следовательно, сборкой мусора) и второй копии можно избежать, используя альтернативный способ:
 
 > **Встака**
